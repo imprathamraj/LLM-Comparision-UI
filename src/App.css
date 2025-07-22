@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  background: transparent;
+  height: 100%;
+}
+
+/* 🔮 Animated gradient background */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: linear-gradient(-45deg, #1e3c72, #2a5298, #ff758c, #ff7eb3);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  filter: blur(35px);
+  opacity: 0.7;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌫️ Glass effect container */
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+h6 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #dddddd;
+  font-style: italic;
+}
+
+/* Prompt box */
+.shared-prompt-container {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.shared-prompt-area {
+  display: flex;
+  gap: 15px;
+}
+
+.shared-prompt-area textarea {
+  flex: 1;
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  color: #222;
+}
+
+/* Button */
+.submit-all-btn {
+  padding: 12px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: fit-content;
+  min-width: 180px;
+}
+
+.submit-all-btn:hover {
+  background-color: #444;
+}
+
+.submit-all-btn:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Model cards */
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 25px;
+}
+
+.model-box {
+  border-radius: 10px;
+  padding: 20px;
+  border-top: 5px solid;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.model-box h2 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.response-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.response-area h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.response-content {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.response-text {
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #111;
+}
+
+.placeholder-text {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+  .model-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shared-prompt-area {
+    flex-direction: column;
+  }
+}
